@@ -12,18 +12,19 @@ export default function Home() {
       const timeoutId = setTimeout(() => {
         setDisplayedText((prev) => prev + text[index]);
         setIndex(index + 1);
-      }, 100);
+      }, 200);  // Adjust typing speed (200ms)
       return () => clearTimeout(timeoutId);
     }
-  }, [index, text]);  // Ensure the dependency array correctly includes the text variable
+  }, [index, text]);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-     
+  
         <h1 className="text-6xl font-bold text-blue-600">
           {displayedText}
+          <span className="border-4 border-blue-600 animate-blink"></span> {/* Blinking cursor */}
         </h1>
-  
+     
     </main>
   );
 }
